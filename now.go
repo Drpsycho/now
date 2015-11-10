@@ -79,6 +79,10 @@ func (now *Now) EndOfYear() time.Time {
 	return now.BeginningOfYear().AddDate(1, 0, 0).Add(-time.Nanosecond)
 }
 
+func OneDayBefore(t time.Time) time.Time  {
+	return t.Add(time.Hour * 24 * (-1))
+}
+
 func (now *Now) Monday() time.Time {
 	t := now.BeginningOfDay()
 	weekday := int(t.Weekday())
